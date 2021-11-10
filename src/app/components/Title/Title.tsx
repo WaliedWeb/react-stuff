@@ -2,18 +2,18 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import styled from 'styled-components';
 
-type ButtonProps = {
+type TitleProps = {
   children: ReactNode;
 };
 
-function Button({ children }: ButtonProps): JSX.Element {
-  return <StyledButton>{children}</StyledButton>;
+function Title({ children }: TitleProps): JSX.Element {
+  return <StyledTitle>{children}</StyledTitle>;
 }
 
-export default Button;
+export default Title;
 
-const StyledButton = styled.button`
-  color: #000;
+const StyledTitle = styled.h1`
+  color: hotpink;
   background: linear-gradient(180deg, #ffbb3b, #ffa90a);
   font-size: 0.8em;
   padding: 0.8em 2em;
