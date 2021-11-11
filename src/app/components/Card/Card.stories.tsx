@@ -12,8 +12,5 @@ const exampleThing = {
 };
 
 export const Regular = (): JSX.Element => (
-  <Card
-    name={exampleThing.name}
-    description={exampleThing.description}
-  />
+  <Card name={exampleThing.name} description={exampleThing.description} />
 );

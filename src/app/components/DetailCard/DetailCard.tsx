@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import Tag from '../Tag/Tag';
-
 
 type DetailCardProps = {
   name: string;
@@ -14,15 +15,35 @@ export default function DetailCard({
   categories,
 }: DetailCardProps): JSX.Element {
   return (
-    <article>
-      <button>Back</button>
+    <Card>
+      <BackLink to={'/'}>Back</BackLink>
       <h2>{name}</h2>
-      <p>{description}</p>
-      <ul>
-        {categories.map(category => (
-          <Tag>{category}</Tag>
+      <Description>{description}</Description>
+      <Categories>
+        {categories.map((category) => (
+          <Tag key={category}>{category}</Tag>
         ))}
-      </ul>
-    </article>
+      </Categories>
+    </Card>
   );
 }
+
+const Card = styled.article`
+  display: grid;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  grid-template-columns: auto 3fr;
+  column-gap: 1rem;
+`;
+
+const BackLink = styled(Link)`
+  place-self: center;
+`;
+
+const Description = styled.p`
+  grid-column: 1 / span 2;
+`;
+
+const Categories = styled.ul`
+  grid-column: 1 / span 2;
+`;
