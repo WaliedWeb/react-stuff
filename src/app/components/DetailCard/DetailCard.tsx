@@ -1,4 +1,5 @@
 import React from 'react';
+import Tag from '../Tag/Tag';
 
 
 type DetailCardProps = {
@@ -19,7 +20,7 @@ export default function DetailCard({
       <p>{description}</p>
       <ul>
         {categories.map(category => (
-          <li>{category}</li>
+          <Tag>{category}</Tag>
         ))}
       </ul>
     </article>
