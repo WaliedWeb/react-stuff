@@ -3,50 +3,32 @@ import styled from 'styled-components';
 import Tag from '../Tag/Tag';
 
 type CardProps = {
-  content: {
-    title: string;
-    description: string;
-    categories: string[];
-  };
+  name: string;
+  description: string;
+  categories?: string[];
 };
 
-function Card({ content }: CardProps): JSX.Element {
-  const { title, description, categories } = content;
+export default function Card({
+  name,
+  description,
+  categories,
+}: CardProps): JSX.Element {
   return (
-    <CardSection>
-      <CardTitle>{title}</CardTitle>
+    <CardBody>
+      <CardHeader>{name}</CardHeader>
       <p>{description}</p>
-      <CardList>
-        {categories.map((category) => (
-          <Tag>{category}</Tag>
-        ))}
-      </CardList>
-    </CardSection>
+      {categories && categories.map((category) => <Tag key={category}>{category}</Tag>)}
+    </CardBody>
   );
 }
 
-export default Card;
-
-const CardSection = styled.section`
-  background: var(--secondary);
-  padding: 0.5rem;
-  text-align: center;
-  color: var(----stroke);
-  margin: 1rem;
-  border-radius: 0.5rem;
+const CardBody = styled.article`
+  padding: 1.5em;
+  border: 5px solid #c92a2a;
+  border-radius: 0.5em;
 `;
 
-const CardTitle = styled.h1`
-  text-transform: uppercase;
-  margin: 0.5rem;
-`;
-
-const CardList = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  row-gap: 0.25rem;
+const CardHeader = styled.h2`
+color: red;
+background-color: hotpink;
 `;
